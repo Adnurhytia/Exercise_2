@@ -30,7 +30,7 @@ namespace SearchAlgorithm
             Console.WriteLine("Masukkan element Array");
             Console.WriteLine("----------------------");
         }
-        public void mergesort(int[] arr, int l, int m, int r)
+        public void mergesort(int[] dinda, int l, int m, int r)
         {
             // Find sizes of two
             // subarrays to be merged
@@ -44,9 +44,9 @@ namespace SearchAlgorithm
 
             // Copy data to temp arrays
             for (i = 0; i < n1; ++i)
-                L[i] = arr[l + i];
+                L[i] = dinda [l + i];
             for (j = 0; j < n2; ++j)
-                R[j] = arr[m + 1 + j];
+                R[j] = dinda [m + 1 + j];
 
             // Merge the temp arrays
 
@@ -62,12 +62,12 @@ namespace SearchAlgorithm
             {
                 if (L[i] <= R[j])
                 {
-                    arr[k] = L[i];
+                    dinda[k] = L[i];
                     i++;
                 }
                 else
                 {
-                    arr[k] = R[j];
+                    dinda[k] = R[j];
                     j++;
                 }
                 k++;
@@ -77,7 +77,7 @@ namespace SearchAlgorithm
             // of L[] if any
             while (i < n1)
             {
-                arr[k] = L[i];
+                dinda[k] = L[i];
                 i++;
                 k++;
             }
@@ -86,40 +86,37 @@ namespace SearchAlgorithm
             // of R[] if any
             while (j < n2)
             {
-                arr[k] = R[j];
+                dinda[k] = R[j];
                 j++;
                 k++;
-            }
-        }
-        // merge()
-        void sort(int[] arr, int l, int r)
-        {
-            if (l < r)
-            {
-                // Find the middle
-                // point
-                int m = l + (r - l) / 2;
-
-                // Sort first and
-                // second halves
-                sort(arr, l, m);
-                sort(arr, m + 1, r);
-
-                // Merge the sorted halves
-                mergesort(arr, l, m, r);
             }
         }
 
         // A utility function to
         // print array of size n */
-        static void printArray(int[] arr)
+        static void printArray(int[] dinda)
         {
-            int n = arr.Length;
+            int n = dinda.Length;
             for (int i = 0; i < n; ++i)
-                Console.Write(arr[i] + " ");
+                Console.Write(dinda[i] + " ");
             Console.WriteLine();
         }
+        public void insertionSort()
+        {
+            int n = dinda.Length;
+            for (int i = 1;i < n; ++i)
+            {
+                int key = dinda[i];
+                int j = i - 1;
 
- 
+                //MoveElements
+                while (j >= 0 && dinda[j] > key)
+                {
+                    dinda[j + 1] = dinda[j];
+                    j = j - 1;
+                }
+                dinda[j + 1] = key;
+            }
+        }
     }
 }
