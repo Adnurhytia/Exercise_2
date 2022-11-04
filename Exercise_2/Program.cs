@@ -118,5 +118,19 @@ namespace SearchAlgorithm
                 dinda[j + 1] = key;
             }
         }
+        static void Main(string[] args)
+        {
+            Program myList = new Program();
+            int pilihanmenu;
+            char ch;
+
+            Console.WriteLine("Menu option");
+            Console.WriteLine("============");
+            Console.WriteLine("1. Merge sort");
+            Console.WriteLine("2. Insertion sort");
+
+            pilihanmenu = Convert.ToInt32(Console.ReadLine());
+
+        }
     }
 }
